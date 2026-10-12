@@ -13,9 +13,3 @@ This record covers local workbench verification only; no AI target environment h
 From the project directory, run `py -m unittest -v` to execute the workbench unit tests. Run `py workbench.py status` to inspect the submission layout. The captured local test evidence is in `submissions/execution-evidence/workbench-tests.md`.
 
 This verification covers the Python workbench only. No AI target environment or target-system prompt-injection run has been verified.
-# Verified Testing Environments
-
-| Environment | Version/configuration | Verification date | Result |
-|---|---|---|---|
-
-## Execution summary
