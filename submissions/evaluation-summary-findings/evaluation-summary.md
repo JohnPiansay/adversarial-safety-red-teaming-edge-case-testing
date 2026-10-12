@@ -64,14 +64,3 @@ The test design covers four distinct injection framings, but is a small starting
 ## Limitations and next steps
 
 There is no named target, documented target configuration, or empirical response evidence. The starter set is limited and results from one configuration must not be generalized to another. Identify an authorized target, execute PI-001 through PI-004, preserve evidence, classify each run using the definitions above, then update results and findings based only on verified observations.
-# Evaluation Summary and Findings
-
-## Scope
-
-## Method and test set
-
-## Results
-
-## Findings and severity
-
-## Limitations
