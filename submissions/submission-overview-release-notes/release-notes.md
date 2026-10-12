@@ -20,12 +20,3 @@ Run `py workbench.py status` and `py -m unittest -v` from the project directory.
 ## Known limitations
 
 The four starter probes have not been run against a target AI system. There are no target responses, pass rate, or confirmed target-system findings. The probe set is preliminary and does not establish comprehensive guardrail resilience.
-# Submission Overview and Release Notes
-
-## Deliverables
-
-## Changes in this release
-
-## High-level handover notes
-
-## Known limitations
