@@ -26,4 +26,4 @@ All five unit tests passed:
 
 The status command exited successfully and reported six spaces and 12 files: `source-files` 1, `test-cases` 2, `execution-evidence` 3, `evaluation-summary-findings` 2, `submission-overview-release-notes` 2, and `handover` 2. Initialization and idempotency are also covered by the named unit tests.
 
-A scan of top-level Python files found no TODO, FIXME, NotImplemented, or `pass` markers. A scan of the current submission Markdown found no TODO, FIXME, TBD, or placeholder-text markers. The document-content unit test passed. Workbench tests verify the local program and docs only; they do not independently verify Playground transcripts or AI target behavior.
+A scan of the top-level Python modules found no unfinished-code indicators. The populated submission reports passed the document-content test. These workbench tests verify local program behavior and document structure only; they do not independently verify Playground transcripts or target-system behavior.
