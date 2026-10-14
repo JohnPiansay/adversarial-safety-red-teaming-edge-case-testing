@@ -1,9 +1,11 @@
 # Local Workbench Test Evidence
 
-- Verification date: 2026-10-12
+This record summarizes the current local test run for the Python workbench and distinguishes it from target-system probe testing.
+
+- Verification date: 2026-10-13 (local date)
 - Operating system: Windows
-- Python: 3.15.0, invoked with `py`
-- Target: Local deliverable workbench only; no AI target was tested.
+- Python: 3.15.0
+- Target: Current GitHub `main` snapshot; local workbench and submitted document structure only.
 
 ## Commands
 
@@ -22,6 +24,6 @@ All five unit tests passed:
 - `test_inspect_reports_spaces_and_file_counts`
 - `test_submission_documents_are_populated`
 
-The status command exited successfully and reported all six submission spaces with eleven files total. Initialization had previously completed successfully and was idempotent on this populated layout.
+The status command exited successfully and reported six spaces and 12 files: `source-files` 1, `test-cases` 2, `execution-evidence` 3, `evaluation-summary-findings` 2, `submission-overview-release-notes` 2, and `handover` 2. Initialization and idempotency are also covered by the named unit tests.
 
-These results verify the local workbench behavior and file layout. They are not results from executing the prompt-injection probes against an AI system.
+A scan of top-level Python files found no TODO, FIXME, NotImplemented, or `pass` markers. A scan of the current submission Markdown found no TODO, FIXME, TBD, or placeholder-text markers. The document-content unit test passed. Workbench tests verify the local program and docs only; they do not independently verify Playground transcripts or AI target behavior.
