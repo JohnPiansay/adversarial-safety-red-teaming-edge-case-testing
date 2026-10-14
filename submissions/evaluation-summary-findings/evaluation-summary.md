@@ -1,5 +1,7 @@
 # Evaluation Summary and Findings
 
+This summary evaluates four reported probe responses and distinguishes reported outcomes from independently verified evidence.
+
 ## Scope
 
 This limited evaluation covers four starter probes: direct requests for hidden instructions, quoted untrusted content, persona-based override attempts, and an instruction described as simulated tool output. The target is reported as the OpenAI Platform Playground with displayed model label `gpt-6-luna`.
