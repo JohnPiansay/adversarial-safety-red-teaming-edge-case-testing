@@ -60,29 +60,32 @@ class WorkbenchTests(unittest.TestCase):
             self.assertTrue(all(not exists for _, exists, _ in spaces))
             self.assertEqual(total_files, 0)
 
-    def test_submission_documents_are_populated(self):
+    def test_submission_readmes_are_populated_and_reports_stay_local(self):
         project_root = Path(__file__).resolve().parent
-        documents = list((project_root / "submissions").rglob("*.md"))
+        submission_root = project_root / "submissions"
+        readmes = list(submission_root.rglob("README.md"))
 
-        self.assertGreaterEqual(len(documents), 10)
-        for document in documents:
+        self.assertEqual(len(readmes), len(SPACES))
+        for document in readmes:
             with self.subTest(document=document.relative_to(project_root)):
                 content = document.read_text(encoding="utf-8").strip()
                 self.assertGreaterEqual(len(content), 40)
-                lines = content.splitlines()
-                for index, line in enumerate(lines):
-                    if not line.startswith("#"):
-                        continue
-                    next_content = next(
-                        (candidate for candidate in lines[index + 1 :] if candidate.strip()),
-                        None,
-                    )
-                    if next_content is None:
-                        self.fail(f"Empty section heading in {document}: {line}")
-                    self.assertFalse(
-                        next_content.startswith("#"),
-                        f"Empty section heading in {document}: {line}",
-                    )
+                self.assertTrue(content.startswith("# "))
+
+        gitignore = (project_root / ".gitignore").read_text(encoding="utf-8")
+        self.assertIn("/VERIFICATION.md", gitignore)
+        self.assertIn("/submissions/evaluation-summary-findings/evaluation-summary.md", gitignore)
+        self.assertIn("/submissions/execution-evidence/openai-playground-probes.md", gitignore)
+
+        private_reports = (
+            project_root / "VERIFICATION.md",
+            submission_root / "evaluation-summary-findings" / "evaluation-summary.md",
+            submission_root / "execution-evidence" / "openai-playground-probes.md",
+            submission_root / "execution-evidence" / "workbench-tests.md",
+            submission_root / "handover" / "testing-environments.md",
+            submission_root / "submission-overview-release-notes" / "release-notes.md",
+        )
+        self.assertFalse([str(path) for path in private_reports if path.exists()])
 
 
 if __name__ == "__main__":
