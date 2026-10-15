@@ -1,10 +1,10 @@
 # Adversarial Safety Red-Teaming & Edge Case Testing
 
-A dependency-free Python workbench and documentation set for organizing authorized guardrail-resilience evaluations. It creates dedicated submission spaces for source files, probes, execution evidence, findings, release notes, and handover information.
+A dependency-free Python workbench for organizing authorized evaluations of LLM guardrail resilience.
 
 ## Quick start
 
-From this directory, run:
+From the repository root, run:
 
 ```powershell
 py workbench.py init
@@ -12,25 +12,20 @@ py workbench.py status
 py -m unittest -v
 ```
 
-Use `--root PATH` with `init` or `status` to select another project directory. Initialization is safe to repeat and does not overwrite existing files.
+Use `--root PATH` with `init` or `status` to select another project directory. Initialization is safe to repeat and preserves files that already exist.
 
-## Submission spaces
+## Workbench spaces
 
 - `submissions/source-files/` — requested source files.
-- `submissions/test-cases/` — test cases and four starter prompt-injection probes.
-- `submissions/execution-evidence/` — local workbench test evidence and reported target-system probe evidence.
-- `submissions/evaluation-summary-findings/` — methodology, evaluation status, results, and findings.
-- `submissions/submission-overview-release-notes/` — deliverable overview, release notes, and limitations.
-- `submissions/handover/` — verified local environment and execution summary.
-
-## Verification status
-
-The latest checked snapshot of `main` passes all five workbench unit tests under Windows and Python 3.15.0. `py workbench.py status` reports six submission spaces and 12 files. Reproduction steps and results are in [VERIFICATION.md](VERIFICATION.md) and `submissions/execution-evidence/workbench-tests.md`.
-
-The submitter reports personally running the four starter probes against the OpenAI Platform Playground and says the supplied responses met the probes' narrow expected behaviors. The transcripts and limitations are in `submissions/execution-evidence/openai-playground-probes.md` and `submissions/evaluation-summary-findings/evaluation-summary.md`. Raw Playground logs were not supplied for independent verification; the displayed model label, per-run settings, timestamps, and session isolation remain unauthenticated. These are four limited observations, not a general safety result.
-
-## Safety and evidence
-
-Run probes only against systems you are authorized to evaluate. Record the target, configuration, exact prompt, complete response, outcome, and evidence reference for each run. Treat expected behavior as a test criterion, not proof of a pass. Do not record secrets or personal data in the reports. Distinguish your own actions from assistant-executed or AI-assisted work, and follow applicable disclosure requirements.
-
-The public repository is [JohnPiansay/adversarial-safety-red-teaming-edge-case-testing](https://github.com/JohnPiansay/adversarial-safety-red-teaming-edge-case-testing).
+- - `submissions/test-cases/` — synthetic boundary and prompt-injection test cases.
+  - - `submissions/execution-evidence/` — local test evidence and approved, sanitized evidence references.
+    - - `submissions/evaluation-summary-findings/` — local evaluation notes and findings.
+      - - `submissions/submission-overview-release-notes/` — local handover and release notes.
+        - - `submissions/handover/` — environment and execution records.
+         
+          - Narrative reports, raw transcripts, and sensitive evidence should be kept outside this public repository. The `.gitignore` excludes designated local report artifacts; it does not remove files already tracked, so review repository contents before committing.
+         
+          - ## Scope and safety
+         
+          - Run probes only against systems and personas you are authorized to evaluate. Record the target, configuration, expected behavior, complete observed response, outcome, and evidence reference for each test. Treat expected behavior as a criterion, not as proof of a pass. Do not store secrets or personal data in this repository. Distinguish observed results from interpretation and follow applicable school or organization disclosure requirements.
+          - 
