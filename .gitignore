@@ -1,0 +1,12 @@
+# Narrative reports are maintained locally or shared in the agreed review channel.
+/VERIFICATION.md
+/submissions/evaluation-summary-findings/evaluation-summary.md
+/submissions/execution-evidence/openai-playground-probes.md
+/submissions/execution-evidence/workbench-tests.md
+/submissions/handover/testing-environments.md
+/submissions/submission-overview-release-notes/release-notes.md
+
+# Do not publish raw evidence exports.
+/submissions/execution-evidence/*.csv
+/submissions/execution-evidence/*.json
+/submissions/execution-evidence/*.zip
